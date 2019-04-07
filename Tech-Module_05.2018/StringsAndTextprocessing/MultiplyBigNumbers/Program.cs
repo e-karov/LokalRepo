@@ -13,7 +13,7 @@ namespace SumBigNumbers
             if (multiplier == 0)
             {
                 Console.WriteLine(0);
-                Environment.Exit(0);
+                return;
             }
            
             StringBuilder result = new StringBuilder();
@@ -22,10 +22,10 @@ namespace SumBigNumbers
             {
                 int digit = int.Parse(numAsString[i].ToString());
                
-                int currentSum = digit * multiplier + remainder;
-                remainder = currentSum  / 10;
+                int currentProduct = digit * multiplier + remainder;
+                remainder = currentProduct  / 10;
 
-                result.Append(currentSum % 10);
+                result.Append(currentProduct % 10);
             }
             result.Append(remainder);
             string output = result.ToString().TrimEnd('0');
