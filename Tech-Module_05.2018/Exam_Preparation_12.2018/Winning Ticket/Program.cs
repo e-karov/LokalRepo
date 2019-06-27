@@ -2,7 +2,7 @@
 using System.Text.RegularExpressions;
 using System.Linq;
 
-namespace Winning_Ticket                // 70 / 100
+namespace Winning_Ticket
 {
     class Program
     {
@@ -16,34 +16,39 @@ namespace Winning_Ticket                // 70 / 100
                 if (str.Length != 20)
                 {
                     Console.WriteLine("invalid ticket");
+                    continue;
                 }
 
-                else if(str.Length == 20)
+
+                Match jackpotMatch = Regex.Match(str, @"([@\$#\^]{10})(\1)");
+
+                if (jackpotMatch.Success)
                 {
-                    Match jackpotMatch = Regex.Match(str, @"([@\$#\^]{10})(\1)");
-                    Regex regex = new Regex(@"(\${6,}|@{6,}|\^{6,}|#{6,})(.*?)(\1)");
-
-                    if (jackpotMatch.Success)
-                    {
-                        Console.WriteLine($"ticket \"{str}\" - {jackpotMatch.Groups[1].Length}{jackpotMatch.Value[0]} Jackpot!");
-                    }
-
-                    else if (regex.Match(str).Success)
-                    {
-                        int length = regex.Match(str).Groups[1].Length;
-                        char symbol = regex.Match(str).Groups[1].Value[0];
-
-                       Console.WriteLine($"ticket \"{str}\" - {regex.Match(str).Groups[1].Length}{symbol}");
-                     
-                    }
-
-                    else
-                    {
-                        Console.WriteLine($"ticket \"{str}\" - no match");
-                    }
+                    Console.WriteLine($"ticket \"{str}\" - {jackpotMatch.Groups[1].Length}{jackpotMatch.Groups[1].Value[0]} Jackpot!");
+                    continue;
                 }
 
-                
+
+                string left = str.Substring(0, 10);
+                string right  = str.Substring(10);
+                Match leftMatch = Regex.Match(left, @"(@{ 6,}|\^{ 6,}|#{6,}|\${6,})");
+                Match rightMatch = Regex.Match(right, @"(@{ 6,}|\^{ 6,}|#{6,}|\${6,})");
+
+                 if (leftMatch.Success && rightMatch.Success)
+                {
+                    int length1 = leftMatch.Groups[1].Length;
+                    int length2 = rightMatch.Groups[1].Length;
+                    int shorterLength = Math.Min(length1, length2);
+
+                    char symbol = leftMatch.Value[0];
+
+                    Console.WriteLine($"ticket \"{str}\" - {shorterLength}{symbol}");
+                }
+
+                else
+                {
+                    Console.WriteLine($"ticket \"{str}\" - no match");
+                }
             }
         }
     }

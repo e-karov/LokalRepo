@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.168
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29009.5
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Google_Seaches", "Google_Seaches\Google_Seaches.csproj", "{212D3B73-9931-44E4-B062-7738003844B3}"
 EndProject
@@ -55,7 +55,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Endurance_Rally", "Enduranc
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Winning_Ticket", "Winning Ticket\Winning_Ticket.csproj", "{B7C2F35E-949F-4A49-AD96-166B0AECA461}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Santa's_Cookies", "Santa's_Cookies\Santa's_Cookies.csproj", "{28D3A9A2-6F65-4BC5-9CEB-8B197DA565C2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Santa's_Cookies", "Santa's_Cookies\Santa's_Cookies.csproj", "{28D3A9A2-6F65-4BC5-9CEB-8B197DA565C2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Winning_TIcket-Solution_Without_Regex", "Winning_TIcket-Solution_Without_Regex\Winning_TIcket-Solution_Without_Regex.csproj", "{0503F5A8-DA04-408C-9C84-62876B726F8A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -171,6 +173,10 @@ Global
 		{28D3A9A2-6F65-4BC5-9CEB-8B197DA565C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{28D3A9A2-6F65-4BC5-9CEB-8B197DA565C2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{28D3A9A2-6F65-4BC5-9CEB-8B197DA565C2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0503F5A8-DA04-408C-9C84-62876B726F8A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0503F5A8-DA04-408C-9C84-62876B726F8A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0503F5A8-DA04-408C-9C84-62876B726F8A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0503F5A8-DA04-408C-9C84-62876B726F8A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
