@@ -1,8 +1,7 @@
 ﻿using System;
 using System.Text.RegularExpressions;
-using System.Linq;
 
-namespace Winning_Ticket
+namespace Winning_Ticket                            // 100 / 100
 {
     class Program
     {
@@ -19,7 +18,6 @@ namespace Winning_Ticket
                     continue;
                 }
 
-
                 Match jackpotMatch = Regex.Match(str, @"([@\$#\^]{10})(\1)");
 
                 if (jackpotMatch.Success)
@@ -31,13 +29,14 @@ namespace Winning_Ticket
 
                 string left = str.Substring(0, 10);
                 string right  = str.Substring(10);
-                Match leftMatch = Regex.Match(left, @"(@{ 6,}|\^{ 6,}|#{6,}|\${6,})");
-                Match rightMatch = Regex.Match(right, @"(@{ 6,}|\^{ 6,}|#{6,}|\${6,})");
+                Match leftMatch = Regex.Match(left, @"@{6,}|\^{6,}|\${6,}|#{6,}");
+                Match rightMatch = Regex.Match(right, @"@{6,}|\^{6,}|\${6,}|#{6,}");
 
-                 if (leftMatch.Success && rightMatch.Success)
+                 if (leftMatch.Success && rightMatch.Success 
+                    && leftMatch.Value[0].Equals(rightMatch.Value[0]))
                 {
-                    int length1 = leftMatch.Groups[1].Length;
-                    int length2 = rightMatch.Groups[1].Length;
+                    int length1 = leftMatch.Value.Length;
+                    int length2 = rightMatch.Value.Length;
                     int shorterLength = Math.Min(length1, length2);
 
                     char symbol = leftMatch.Value[0];
